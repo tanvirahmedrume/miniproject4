@@ -1,17 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Signika+Negative:wght@300..700&display=swap');
 
-:root{
-    --font-signika: "Signika Negative", sans-serif;
-    --font-rajdhani: "Rajdhani", sans-serif;
-}
-
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     list-style-type: none;
     outline: none;
-    font-family: var(--font-rajdhani);
     font-weight: 400;
 }
 html{
@@ -23,6 +17,7 @@ html{
     justify-content: center;
     align-items: center;
     height: 100vh;
+    font-family: "Rajdhani", sans-serif;;
 }
 .card{
     background-color: #222;
@@ -31,6 +26,7 @@ html{
     min-height: 90vh;
     scrollbar-width: 0;
     width: 50%;
+    height: 50%;
     overflow: scroll;
     border-radius: 0.5rem;
 }
@@ -46,8 +42,10 @@ input{
     padding: 0.6rem;
     font-weight: 600;
     width: 80%;
+    font-family: "Rajdhani", sans-serif;;
 }
-button{
+.btn{
+    font-family: "Rajdhani", sans-serif;;
     border: none;
     border-radius: 0.6rem;
     padding: 0.6rem;
@@ -55,15 +53,31 @@ button{
     color: white;
     transition: all 0.3s;
     cursor: pointer;
-
+    width: 13%;
     font-weight: 600;
 }
-button:hover{
+.btn:hover{
     background-color: white;
     color: black;
 }
+.deBtn{
+    border: none;
+    border-radius: 0.6rem;
+    padding: 0.6rem;
+    background-color: orange;
+    color: white;
+    transition: all 0.3s;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.deBtn:hover{
+    background-color: white;
+    color: black;
+}
+
 .li-style{
-    font-family: var(--font-signika);
+    font-family: "Signika Negative";
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -94,4 +108,18 @@ button:hover{
     background-color: #ffdddd;
     border-left: 6px solid #f44336;
     border-radius: 0.4rem;
+}
+
+@media screen and (max-width: 600px) {
+    .card{
+        margin: 7px;
+        width: 100%;
+    }
+    .btn{
+        width: 15%;
+
+        font-size: 0.6rem;
+        padding-right: 1px;
+        padding-left: 1px;
+    }
 }

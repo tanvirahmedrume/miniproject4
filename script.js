@@ -1,20 +1,18 @@
-const container = document.querySelector(".container");
 const todo_form = document.querySelector(".todo-form");
 const todoInput = document.querySelector("#inputTodo");
-const btn = document.querySelector("#addTodoButton");
 const todoLists = document.querySelector("#list");
 const message = document.querySelector("#message");
 
 // CreateTODO
-const createTodo = (a, b) => {
-  if (b.trim() !== "") {
+const createTodo = (todoID, todoValue) => {
+  if (todoValue.trim() !== "") {
     // Check if todoValue is not empty
     const todoElement = document.createElement("li");
-    todoElement.id = a;
+    todoElement.id = todoID;
     todoElement.classList.add("li-style");
     todoElement.innerHTML = `
-          <span> ${b} </span>
-          <span> <button class="btn" id="deleteBTN"> <i class= "fa fa-trash">  </i> </button> </span>
+          <span> ${todoValue} </span>
+          <span> <button class="deBtn" id="deleteBTN"> <i class= "fa fa-trash">  </i> </button> </span>
     `;
     todoLists.appendChild(todoElement);
 
@@ -27,24 +25,15 @@ const createTodo = (a, b) => {
 // DeleteTodo
 const deleteTodo = (e) => {
     const seletedTodo = e.target.parentElement.parentElement.parentElement;
-    todoLists.removeChild(seletedTodo);
-    showMessage("Todo is Deleted", "danger");
+
+  todoLists.removeChild(seletedTodo);
+  showMessage("Todo is Deleted", "danger");
 
 
-    let todos = getTodosFromLocalStroge();
-    todos = todos.filter((todo) => todo.todoId !== seletedTodo.id);
-    localStorage.setItem("mytodos", JSON.stringify(todos));
+     let todos = getTodosFromLocalStroge();
+     todos = todos.filter((todo) => todo.todoID !== seletedTodo.id);
+     localStorage.setItem("mytodos", JSON.stringify(todos));
 
-};
-
-// Show message
-const showMessage = (t, s) => {
-  message.textContent = t;
-  message.classList.add(`bg_${s}`);
-  setTimeout(() => {
-    message.textContent = "";
-    message.classList.remove(`bg_${s}`); // Remove the class after timeout
-  }, 2000);
 };
 
 // GetTodosFromLocalStroge
@@ -54,6 +43,18 @@ const getTodosFromLocalStroge = () => {
     ? JSON.parse(localStorage.getItem("mytodos"))
     : [];
 };
+
+
+// Show message
+const showMessage = (t, s) => {
+  message.textContent = t;
+  message.classList.add(`bg_${s}`);
+  setTimeout(() => {
+    message.textContent = "";
+    message.classList.remove(`bg_${s}`); // Remove the class after timeout
+  }, 1000);
+};
+
 
 // addTODOFunction
 const addTODOFunction = (e) => {
@@ -74,4 +75,11 @@ const addTODOFunction = (e) => {
   todoInput.value = "";
 };
 
+// LoadTodos
+const loadTodos = () =>{
+   const todos = getTodosFromLocalStroge();
+   todos.map((todo) => createTodo(todo.todoID, todo.todoValue));
+}
+
 todo_form.addEventListener("submit", addTODOFunction);
+window.addEventListener("DOMContentLoaded", loadTodos);
