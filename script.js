@@ -20,13 +20,21 @@ const createTodo = (a, b) => {
 
     const deleteButton = todoElement.querySelector("#deleteBTN");
 
-    deleteButton.addEventListener("click", deleteBTN);
+    deleteButton.addEventListener("click", deleteTodo);
   }
 };
 
 // DeleteTodo
-const deleteBTN = () => {
-  console.log("Delete todo.");
+const deleteTodo = (e) => {
+    const seletedTodo = e.target.parentElement.parentElement.parentElement;
+    todoLists.removeChild(seletedTodo);
+    showMessage("Todo is Deleted", "danger");
+
+
+    let todos = getTodosFromLocalStroge();
+    todos = todos.filter((todo) => todo.todoId !== seletedTodo.id);
+    localStorage.setItem("mytodos", JSON.stringify(todos));
+
 };
 
 // Show message
