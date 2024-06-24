@@ -6,13 +6,18 @@ const message = document.querySelector("#message");
 // CreateTODO
 const createTodo = (todoID, todoValue) => {
   if (todoValue.trim() !== "") {
+    const now = new Date();
+    const localDateTime = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
     // Check if todoValue is not empty
     const todoElement = document.createElement("li");
     todoElement.id = todoID;
     todoElement.classList.add("li-style");
     todoElement.innerHTML = `
-          <span> ${todoValue} </span>
-          <span> <button class="deBtn" id="deleteBTN"> <i class= "fa fa-trash">  </i> </button> </span>
+          <span> ${localDateTime} </span>
+          <span class="flex-container">
+            <span>${todoValue}</span>
+            <button class="deBtn" id="deleteBTN"> <i class= "fa fa-trash">  </i> </button>
+          </span>
     `;
     todoLists.appendChild(todoElement);
 
@@ -61,8 +66,13 @@ const addTODOFunction = (e) => {
   e.preventDefault();
   const todoValue = todoInput.value.trim(); // Trim the input value
 
-  const todoID = Date.now().toString();
+ const todoID = Date.now().toString();
+  // const date = new Date();
+  // const localDate = date.toLocaleDateString();
+  // const localTime = date.toLocaleTimeString();
   createTodo(todoID, todoValue);
+
+  
 
   showMessage("TODO is successfully added!", "success");
 

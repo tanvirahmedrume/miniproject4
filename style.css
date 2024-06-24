@@ -8,6 +8,26 @@
     outline: none;
     font-weight: 400;
 }
+/* Handle */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #111;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #222;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 html{
     scroll-behavior: smooth;
 }
@@ -28,6 +48,7 @@ html{
     width: 50%;
     height: 50%;
     overflow: scroll;
+    scrollbar-color: #111;
     border-radius: 0.5rem;
 }
 .card-title{
@@ -79,8 +100,8 @@ input{
 .li-style{
     font-family: "Signika Negative";
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
     margin-top: 1rem;
     background-color: #333;
     color: white;
@@ -88,6 +109,24 @@ input{
     border-radius: 0.4rem;
     margin: 1rem 0;
 }
+
+
+.li-style > span:first-child {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+   */
+  .flex-container button {
+    margin-left: 10px;
+  }
+
 .li-style:hover{
     transition: all 0.3s;
     background-color: #111;
@@ -121,5 +160,9 @@ input{
         font-size: 0.6rem;
         padding-right: 1px;
         padding-left: 1px;
+    }
+    .li-style>span:last-child{
+        display: flex;
+        
     }
 }
