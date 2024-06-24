@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Signika+Negative:wght@300..700&display=swap');
+
+:root{
+    --font-signika: "Signika Negative", sans-serif;
+    --font-rajdhani: "Rajdhani", sans-serif;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    outline: none;
+    font-family: var(--font-rajdhani);
+    font-weight: 400;
+}
+html{
+    scroll-behavior: smooth;
+}
+.container{
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.card{
+    background-color: #222;
+    color: white;
+    padding: 1rem;
+    min-height: 90vh;
+    scrollbar-width: 0;
+    width: 50%;
+    overflow: scroll;
+    border-radius: 0.5rem;
+}
+.card-title{
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1rem ;
+}
+
+input{
+    border: none;
+    border-radius: 0.6rem;
+    padding: 0.6rem;
+    font-weight: 600;
+    width: 80%;
+}
+button{
+    border: none;
+    border-radius: 0.6rem;
+    padding: 0.6rem;
+    background-color: orange;
+    color: white;
+    transition: all 0.3s;
+    cursor: pointer;
+
+    font-weight: 600;
+}
+button:hover{
+    background-color: white;
+    color: black;
+}
+.li-style{
+    font-family: var(--font-signika);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    background-color: #333;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    margin: 1rem 0;
+}
+.li-style:hover{
+    transition: all 0.3s;
+    background-color: #111;
+}
+
+.bg_success{
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    color: black;
+    background-color: #ddffdd;
+    border-left: 6px solid #04aa6d;
+    border-radius: 0.4rem;
+}
+.bg_danger{
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    color: black;
+    background-color: #ffdddd;
+    border-left: 6px solid #f44336;
+    border-radius: 0.4rem;
+}
