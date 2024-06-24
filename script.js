@@ -16,12 +16,12 @@ const createTodo = (todoID, todoValue) => {
           <span> ${localDateTime} </span>
           <span class="flex-container">
             <span>${todoValue}</span>
-            <button class="deBtn" id="deleteBTN"> <i class= "fa fa-trash">  </i> </button>
+            <button class="deBtn" id="deleteBTN"> <i class= "fa fa-trash"></i></button>
           </span>
     `;
     todoLists.appendChild(todoElement);
 
-    const deleteButton = todoElement.querySelector("#deleteBTN");
+    const deleteButton = todoElement.querySelector(".deBtn");
 
     deleteButton.addEventListener("click", deleteTodo);
   }
@@ -29,7 +29,7 @@ const createTodo = (todoID, todoValue) => {
 
 // DeleteTodo
 const deleteTodo = (e) => {
-    const seletedTodo = e.target.parentElement.parentElement.parentElement;
+    const seletedTodo = e.currentTarget.parentElement.parentElement;
 
   todoLists.removeChild(seletedTodo);
   showMessage("Todo is Deleted", "danger");
